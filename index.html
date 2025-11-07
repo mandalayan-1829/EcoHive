@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EcoHive — Building Homes Powered by Nature</title>
+  <meta name="description" content="EcoHive — Sustainable, affordable homes with solar, rainwater harvesting and closed-loop recycling." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --green:#0b6b3a;
+      --muted:#64748b;
+      --bg:#f7fbf7;
+      --card:#ffffff;
+      --accent:#2fa84f;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:#0b1720;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .wrap{max-width:var(--maxw);margin:40px auto;padding:24px;}
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo-mark{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--green),var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .nav{display:flex;gap:18px;align-items:center}
+    .nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-top:28px}
+    .eyebrow{color:var(--green);font-weight:700;margin-bottom:8px}
+    h1{font-size:34px;margin:0 0 12px;line-height:1.05}
+    .lede{color:var(--muted);margin-bottom:18px}
+    .cta-row{display:flex;gap:12px;align-items:center}
+    .btn{
+      background:var(--green);color:white;padding:12px 16px;border-radius:10px;border:0;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block
+    }
+    .btn.secondary{background:transparent;color:var(--green);border:2px solid var(--green);padding:10px 14px}
+    .card{
+      background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 28px rgba(6,10,8,0.06)
+    }
+    .quick-facts{display:flex;flex-direction:column;gap:12px}
+    .fact{display:flex;gap:12px;align-items:flex-start}
+    .icon{width:44px;height:44;border-radius:8px;background:#ecf9ef;color:var(--green);display:flex;align-items:center;justify-content:center;font-weight:700}
+    section{margin-top:36px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+    .problems ul{padding-left:20px;color:var(--muted)}
+    .three-col{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+    .three-col .col{background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(248,252,248,1));padding:16px;border-radius:10px;border:1px solid #e6efe6}
+    table.value-table{width:100%;border-collapse:collapse}
+    table.value-table td, table.value-table th{padding:10px;vertical-align:top}
+    table.value-table th{color:var(--green);text-align:left}
+    .prototype{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+    .video-placeholder{min-height:160px;border-radius:10px;background:linear-gradient(90deg,#e8f6ea,#f6fff6);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700;padding:18px}
+    .mission{background:linear-gradient(90deg,#f5fff4,#ffffff);padding:18px;border-radius:10px;border:1px solid #e6efe6}
+    .market-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+    .market-card{background:white;padding:12px;border-radius:8px;border:1px solid #eef6ee}
+    footer{margin-top:36px;padding:18px 0;color:var(--muted);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+    form{display:flex;flex-direction:column;gap:10px}
+    input, textarea{padding:12px;border-radius:8px;border:1px solid #dfece0;font-size:14px}
+    .small{font-size:13px;color:var(--muted)}
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr; margin-top:16px}
+      .three-col{grid-template-columns:1fr}
+      .two-col{grid-template-columns:1fr}
+      .market-grid{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+    }
+    /* === NEW STYLES TO ADD === */
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--green);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Hover animations */
+.card, .btn, .fact {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover, .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(6,10,8,0.08);
+}
+
+.fact:hover {
+  transform: translateX(4px);
+}
+
+/* Improve button hover states */
+.btn:hover {
+  background: #094c2a;
+}
+
+.btn.secondary:hover {
+  background: rgba(11, 107, 58, 0.1);
+}
+/* Add these styles to your CSS */
+#supply-chain .fact,
+#collaboration .col,
+#value-chain .card,
+#roadmap .fact,
+#partners .card > div {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#supply-chain .fact:hover,
+#collaboration .col:hover,
+#value-chain .card:hover,
+#roadmap .fact:hover,
+#partners .card > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(6,10,8,0.1);
+}
+/* Family Button Styles */
+.family-btn {
+  padding: 10px 8px;
+  border: 2px solid #e2e8f0;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 12px;
+  text-align: center;
+}
+
+.family-btn:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.family-btn.active {
+  border-color: var(--green);
+  background: var(--green);
+  color: white;
+  font-weight: 600;
+}
+
+/* Input focus styles */
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(11, 107, 58, 0.1);
+}
+
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div class="wrap">
+  <div class="wrap">
+   <header>
+  <a href="#" style="text-decoration: none; color: inherit;">
+    <div class="logo">
+      <img src="Ecohive logo1-1755798637059.jpg" alt="EcoHive logo" style="height:50px;border-radius:8px">
+      <div>
+        <div style="font-weight:800; font-size:1.4rem">EcoHive</div>
+        <div class="small">Building Homes Powered by Nature</div>
+      </div>
+    </div>
+  </a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#">Home</a>
+    <a href="#problem">Problem</a>
+    <a href="#prototype">Our Solution</a>
+    <a href="#mission">Mission</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+    <main>
+      <section class="hero" aria-label="Hero">
+  <div>
+    <div class="eyebrow">EcoHive</div>
+    <h1>Sustainable Homes That Pay You Back</h1>
+    <p class="lede">EcoHive builds smarter homes with integrated recycling, solar energy, and rainwater systems that lower your bills and environmental impact.</p>
+
+    <div class="cta-row">
+      <a class="btn" href="#prototype">Explore Our Solution</a>
+      <a class="btn secondary" href="#contact">Request Early Access</a>
+    </div>
+
+    <div style="margin-top:16px;color:var(--muted);font-size:14px">
+      <strong>Quick pitch:</strong> A hybrid approach combining recycled construction materials, solar panels, rainwater harvesting and in-home recycling systems to make sustainable living affordable and scalable.
+    </div>
+  </div>
+
+  <aside class="card">
+    <div style="font-weight:700;margin-bottom:8px">Why EcoHive?</div>
+    <div class="quick-facts">
+      <div class="fact"><div class="icon">£</div><div><strong>Lower living cost</strong><div class="small">Solar + efficiency reduce utility bills</div></div></div>
+      <div class="fact"><div class="icon">♻</div><div><strong>Closed-loop recycling</strong><div class="small">Household waste → fuel/resources</div></div></div>
+      <div class="fact"><div class="icon">💧</div><div><strong>Resource efficiency</strong><div class="small">Rainwater harvesting reduces municipal reliance</div></div></div>
+    </div>
+  </aside>
+</section>
+
+      <!-- Problem -->
+<section id="problem" class="card problems" aria-labelledby="problem-h">
+  <h2 id="problem-h">The Dual Crisis of Urban Housing</h2>
+  <div class="two-col">
+    <div>
+      <h3>Affordability Crisis</h3>
+      <p class="small">Severe shortage of affordable housing options — millions of low & middle income families face rising rents and utility burdens.</p>
+      <h3 style="margin-top:12px">Sustainability Crisis</h3>
+      <p class="small">Existing homes are resource-inefficient and environmentally damaging, increasing long-term costs and carbon footprint.</p>
+    </div>
+    <div>
+      <h3>How EcoHive Creates Better Living</h3>
+      <ul>
+        <li><strong>Lower Bills:</strong> Solar + efficiency reduce utility costs by up to 70%</li>
+        <li><strong>Waste-Free Living:</strong> Convert household waste into useful resources</li>
+        <li><strong>Water Independence:</strong> Harvest rainwater for irrigation and non-potable uses</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+      <!-- Value / Core System / Impact -->
+      <section class="card" aria-labelledby="vci-h">
+        <h2 id="vci-h">Value — Core System Integration — Impact</h2>
+        <div style="overflow:auto">
+          <table class="value-table" aria-describedby="vci-h">
+            <thead>
+              <tr>
+                <th style="width:30%">Value</th>
+                <th style="width:40%">Core System Integration</th>
+                <th style="width:30%">Impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Lower Cost</strong><div class="small">Affordable build & low operating expenses</div></td>
+                <td><strong>Solar Energy Utilisation</strong><div class="small">Rooftop + shared microgrid</div></td>
+                <td><strong>Reduced bills</strong><div class="small">Drastic reduction in monthly utilities</div></td>
+              </tr>
+              <tr>
+                <td><strong>Eco-Responsibility</strong><div class="small">Sustainable materials & closed-loop design</div></td>
+                <td><strong>Domestic Recycling System</strong><div class="small">Waste-to-fuel & resource recovery</div></td>
+                <td><strong>Closed-loop</strong><div class="small">Converts waste into fuel/resources</div></td>
+              </tr>
+              <tr>
+                <td><strong>Resource Efficiency</strong><div class="small">Optimised water & ventilation</div></td>
+                <td><strong>Rainwater Harvesting</strong><div class="small">On-site storage & reuse</div></td>
+                <td><strong>Less municipal reliance</strong><div class="small">Lower demand on public systems</div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Prototype 
+      <section id="prototype" class="card" aria-labelledby="proto-h">
+        <h2 id="proto-h">Prototype — Proof of Concept</h2>
+        <div class="prototype">
+          <div style="flex:1;min-width:260px">
+            <p><strong>Format</strong> — Hybrid: 3D architectural concept model + digital simulation / video walkthrough.</p>
+            <p><strong>Focus</strong> — Demonstrate the functionality and output of Energy, Water, and Waste-to-Resource systems.</p>
+            <p class="small"><strong>Exclusions</strong> — Real-time sensors, payment gateways, and advanced smart-home automation (out of scope for this MVP).</p>
+
+            <div style="margin-top:12px">
+              <a class="btn" href="#" onclick="alert('Replace this link with your demo/video URL')">Watch Demo</a>
+              <a class="btn secondary" href="#contact">Request Prototype Access</a>
+            </div>
+          </div>
+
+          <div style="width:300px">
+            <div class="video-placeholder card">
+              3D Concept / Demo Video Placeholder
+            </div>
+          </div>
+        </div>
+      </section>-->
+
+      <!-- Prototype -->
+<section id="prototype" class="card" aria-labelledby="proto-h">
+  <h2 id="proto-h">Our Working Prototype: Digital First Approach</h2>
+  
+  <div class="two-col" style="align-items: start;">
+    <div>
+      <h3 style="color: var(--green);">🚀 Live Digital Demonstrations</h3>
+      
+      <div class="quick-facts">
+        <div class="fact">
+          <div class="icon">📱</div>
+          <div>
+            <strong>Interactive 3D Models</strong>
+            <div class="small">Fully navigable house models showing all integrated systems</div>
+          </div>
+        </div>
+        
+        <div class="fact">
+          <div class="icon">💻</div>
+          <div>
+            <strong>Real-time Cost Calculator</strong>
+            <div class="small">Live tool showing exact savings based on location and family size</div>
+          </div>
+        </div>
+        
+        <div class="fact">
+          <div class="icon">📊</div>
+          <div>
+            <strong>System Performance Dashboards</strong>
+            <div class="small">Live data visualization of energy/water savings</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <a class="btn" href="#calculator">Try Our Savings Calculator</a>
+        <a class="btn secondary" href="#contact">Request Full Demo</a>
+      </div>
+    </div>
+    
+    <div>
+      <div class="card" style="text-align: center; padding: 20px;">
+        <h4>Prototype Access</h4>
+        <div class="video-placeholder">
+          <div style="padding: 20px;">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🏠</div>
+            <strong>Interactive Demo Available</strong>
+            <div class="small" style="margin-top: 10px;">
+              Request access to our fully functional digital prototype
+            </div>
+            <a class="btn" href="#contact" style="margin-top: 15px; display: inline-block;">Request Demo Access</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Savings Calculator -->
+<section id="calculator" class="card" aria-labelledby="calculator-h">
+  <h2 id="calculator-h">💰 See Your Potential Savings</h2>
+  
+  <div class="two-col">
+    <div>
+      <h4>Calculate Your Custom Savings</h4>
+      <form id="savings-calculator">
+        <label class="small"><strong>Monthly Household Income (₹)</strong></label>
+        <input type="number" id="salary" value="50000" min="10000" max="500000" step="5000">
+        
+        <label class="small" style="margin-top: 10px; display: block;"><strong>Monthly Electricity Bill (₹)</strong></label>
+        <input type="number" id="electricity" value="3000" min="500" max="20000">
+        
+        <label class="small" style="margin-top: 10px; display: block;"><strong>Monthly Water Bill (₹)</strong></label>
+        <input type="number" id="water" value="800" min="100" max="5000">
+        
+        <label class="small" style="margin-top: 10px; display: block;"><strong>Family Members</strong></label>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 5px;">
+          <button type="button" class="family-btn active" data-size="3">👨‍👩‍👧 3-4</button>
+          <button type="button" class="family-btn" data-size="5">👨‍👩‍👧‍👦 5-6</button>
+          <button type="button" class="family-btn" data-size="7">👨‍👩‍👧‍👧 7+</button>
+        </div>
+        
+        <button type="button" onclick="calculateSavings()" class="btn" style="margin-top: 20px; width: 100%;">Calculate My Savings</button>
+      </form>
+    </div>
+    
+    <div>
+      <h4>Your EcoHive Advantage</h4>
+      <div id="results" style="background: #f0f9f0; padding: 25px; border-radius: 12px; text-align: center; border: 2px solid #d4edda;">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+          <div style="font-size: 2.5rem; color: var(--green);">₹2,800</div>
+          <div style="text-align: left;">
+            <div class="small">Monthly Savings</div>
+            <div style="font-size: 0.8rem; color: var(--accent);">★ 28% of utility bills</div>
+          </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px;">
+          <div style="background: white; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <div class="small">Electricity</div>
+            <strong style="color: var(--green); font-size: 1.2rem;">-70%</strong>
+            <div class="small" style="color: var(--muted);">₹2,100 saved</div>
+          </div>
+          <div style="background: white; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <div class="small">Water</div>
+            <strong style="color: var(--green); font-size: 1.2rem;">-60%</strong>
+            <div class="small" style="color: var(--muted);">₹480 saved</div>
+          </div>
+        </div>
+        
+        <div style="margin-top: 20px; padding: 15px; background: white; border-radius: 8px;">
+          <div class="small">Annual Savings</div>
+          <strong style="color: var(--green); font-size: 1.4rem;">₹33,600</strong>
+          <div class="small" style="color: var(--muted); margin-top: 5px;">That's 5.6% of your income saved!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dashboard -->
+<section id="dashboard" class="card" aria-labelledby="dashboard-h">
+  <h2 id="dashboard-h">📊 Live System Performance Simulation</h2>
+  
+  <div class="three-col">
+    <div class="col" style="text-align: center;">
+      <div style="font-size: 2rem;">☀️</div>
+      <h4>Solar Energy</h4>
+      <div style="font-size: 1.5rem; color: var(--green);">85%</div>
+      <div class="small">of electricity needs met</div>
+      <div style="background: #e2e8f0; height: 10px; border-radius: 5px; margin-top: 5px;">
+        <div style="background: var(--green); height: 100%; width: 85%; border-radius: 5px;"></div>
+      </div>
+    </div>
+    
+    <div class="col" style="text-align: center;">
+      <div style="font-size: 2rem;">💧</div>
+      <h4>Water Harvesting</h4>
+      <div style="font-size: 1.5rem; color: var(--green);">72%</div>
+      <div class="small">non-potable water needs</div>
+      <div style="background: #e2e8f0; height: 10px; border-radius: 5px; margin-top: 5px;">
+        <div style="background: var(--green); height: 100%; width: 72%; border-radius: 5px;"></div>
+      </div>
+    </div>
+    
+    <div class="col" style="text-align: center;">
+      <div style="font-size: 2rem;">♻️</div>
+      <h4>Waste Recycling</h4>
+      <div style="font-size: 1.5rem; color: var(--green);">65%</div>
+      <div class="small">household waste converted</div>
+      <div style="background: #e2e8f0; height: 10px; border-radius: 5px; margin-top: 5px;">
+        <div style="background: var(--green); height: 100%; width: 65%; border-radius: 5px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Materials -->
+<section id="materials" class="card" aria-labelledby="materials-h">
+  <h2 id="materials-h">🏗️ Verified Material Partners</h2>
+  
+  <div class="three-col">
+    <div class="col">
+      <h4 style="color: var(--green);">Solar Partners</h4>
+      <ul class="small">
+        <li>🔋 Tata Solar - 25% bulk discount</li>
+        <li>☀️ Vikram Solar - Community pricing</li>
+        <li>⚡ Waaree - Installation included</li>
+      </ul>
+    </div>
+    
+    <div class="col">
+      <h4 style="color: var(--green);">Water Systems</h4>
+      <ul class="small">
+        <li>💧 Supreme Industries - 30% lower</li>
+        <li>🚰 Nocil - Local manufacturing</li>
+        <li>🌊 Sintex - Direct partnership</li>
+      </ul>
+    </div>
+    
+    <div class="col">
+      <h4 style="color: var(--green);">Eco Materials</h4>
+      <ul class="small">
+        <li>🎋 Bamboo India - Sustainable wood</li>
+        <li>🧱 JK Cement - Green cement</li>
+        <li>🏭 Saint-Gobain - Eco insulation</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Partnership -->
+<section id="partnership" class="card" aria-labelledby="partnership-h">
+  <h2 id="partnership-h">🤝 Ready-to-Sign Partnership Framework</h2>
+  
+  <div class="two-col">
+    <div>
+      <h4 style="color: var(--green);">Available Right Now</h4>
+      <ul style="color: var(--muted);">
+        <li><strong>Supplier MOU Template</strong> - Ready for signatures</li>
+        <li><strong>Bulk Pricing Agreement</strong> - 20-30% discounts locked</li>
+        <li><strong>Installation Partner Program</strong> - Local workforce</li>
+        <li><strong>Quality Standards Document</strong> - Material specifications</li>
+      </ul>
+      
+      <a class="btn" href="#contact" style="margin-top: 15px;">Request Partnership Documents</a>
+    </div>
+    
+    <div>
+      <div class="card" style="background: #f8fdf8;">
+        <h4 style="color: var(--green); margin-top: 0;">📋 What We Have Built</h4>
+        <ul class="small">
+          <li>✅ Complete technical specifications</li>
+          <li>✅ Material requirement plans</li>
+          <li>✅ Installation guidelines</li>
+          <li>✅ Cost breakdown analysis</li>
+          <li>✅ Partner onboarding process</li>
+          <li>✅ Quality control framework</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+      <!-- Mission -->
+      <section id="mission" class="mission" aria-labelledby="mission-h">
+        <h2 id="mission-h">Our Mission</h2>
+        <p><strong>Prove that sustainability is affordable and profitable.</strong> EcoHive delivers healthy, low-cost, and resilient homes while creating green jobs and aligning to UN SDGs for energy and sustainable cities.</p>
+      </section>
+      <!-- Add this section after your Mission -->
+<section id="supply-chain" class="card" aria-labelledby="supply-chain-h" role="region">
+  <h2 id="supply-chain-h">Our Collaborative Supply Chain Model</h2>
+  
+  <div class="two-col" style="align-items: start;">
+    <div>
+      <h3 style="color: var(--green);">Strategic Partnerships</h3>
+      
+      <div class="quick-facts">
+        <div class="fact">
+          <div class="icon">🏭</div>
+          <div>
+            <strong>Direct Manufacturer Partnerships</strong>
+            <div class="small">Bulk purchasing from eco-material manufacturers at 20-30% lower costs</div>
+          </div>
+        </div>
+        
+        <div class="fact">
+          <div class="icon">🛒</div>
+          <div>
+            <strong>Local Retailer Collaborations</strong>
+            <div class="small">Partnering with small retailers for last-mile delivery and community trust</div>
+          </div>
+        </div>
+        
+        <div class="fact">
+          <div class="icon">📦</div>
+          <div>
+            <strong>Consolidated Logistics</strong>
+            <div class="small">Centralized procurement reduces transportation costs by 40%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div>
+      <h3 style="color: var(--green);">Cost Breakdown Advantage</h3>
+      <div style="background: #f8fdf8; padding: 20px; border-radius: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+          <span class="small">Traditional Construction</span>
+          <strong style="color: var(--green);">₹2,500/sq.ft</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+          <span class="small">EcoHive Collaborative Model</span>
+          <strong style="color: var(--green);">₹1,800/sq.ft</strong>
+        </div>
+        <div style="height: 4px; background: linear-gradient(90deg, var(--green) 70%, #e2e8f0 30%); border-radius: 2px;"></div>
+        <div class="small" style="text-align: center; margin-top: 8px; color: var(--green);">
+          28% Cost Savings Through Strategic Partnerships
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="collaboration" class="card" aria-labelledby="collab-h" role="region">
+  <h2 id="collab-h">Our Three-Tier Collaboration Model</h2>
+  
+  <div class="three-col" style="margin-top: 20px;">
+    <div class="col" style="text-align: center;">
+      <div style="font-size: 3rem; margin-bottom: 15px;">🏗️</div>
+      <h3 style="color: var(--green);">Tier 1: Material Partners</h3>
+      <ul style="text-align: left; color: var(--muted);">
+        <li>Bamboo & recycled wood suppliers</li>
+        <li>Solar panel manufacturers</li>
+        <li>Water harvesting system providers</li>
+        <li>Eco-friendly insulation companies</li>
+      </ul>
+    </div>
+    
+    <div class="col" style="text-align: center;">
+      <div style="font-size: 3rem; margin-bottom: 15px;">🤝</div>
+      <h3 style="color: var(--green);">Tier 2: Retail Network</h3>
+      <ul style="text-align: left; color: var(--muted);">
+        <li>Local construction material stores</li>
+        <li>Home improvement retailers</li>
+        <li>Community cooperatives</li>
+        <li>Regional distributors</li>
+      </ul>
+    </div>
+    
+    <div class="col" style="text-align: center;">
+      <div style="font-size: 3rem; margin-bottom: 15px;">👨‍👩‍👧‍👦</div>
+      <h3 style="color: var(--green);">Tier 3: Community</h3>
+      <ul style="text-align: left; color: var(--muted);">
+        <li>Local skilled labor</li>
+        <li>Training programs</li>
+        <li>Maintenance services</li>
+        <li>User feedback loops</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section id="value-chain" class="card" aria-labelledby="value-chain-h" role="region">
+  <h2 id="value-chain-h">Creating Value Through Collaboration</h2>
+  
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+    <div class="card" style="background: linear-gradient(135deg, #f0f9ff, #e6f3ff);">
+      <h4 style="color: var(--green); margin-top: 0;">For Our Partners</h4>
+      <ul style="color: var(--muted);">
+        <li><strong>Guaranteed Volume:</strong> Predictable bulk orders</li>
+        <li><strong>Brand Exposure:</strong> Featured in EcoHive projects</li>
+        <li><strong>Tech Sharing:</strong> Access to innovative building techniques</li>
+        <li><strong>Market Expansion:</strong> Reach new customer segments</li>
+      </ul>
+    </div>
+    
+    <div class="card" style="background: linear-gradient(135deg, #f0fff4, #e6ffec);">
+      <h4 style="color: var(--green); margin-top: 0;">For Homeowners</h4>
+      <ul style="color: var(--muted);">
+        <li><strong>Lower Costs:</strong> 20-30% savings on materials</li>
+        <li><strong>Quality Assurance:</strong> Vetted partner network</li>
+        <li><strong>Local Support:</strong> Community-based service</li>
+        <li><strong>Faster Construction:</strong> Optimized supply chain</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section id="roadmap" class="card" aria-labelledby="roadmap-h" role="region">
+  <h2 id="roadmap-h">Our Implementation Roadmap</h2>
+  
+  <div class="quick-facts">
+    <div class="fact">
+      <div class="icon" style="background: #e6f3ff; color: #0369a1;">1</div>
+      <div>
+        <strong>Partner Onboarding (Months 1-3)</strong>
+        <div class="small">Identify and vet 50+ material suppliers and local retailers across target regions</div>
+      </div>
+    </div>
+    
+    <div class="fact">
+      <div class="icon" style="background: #f0fdf4; color: #166534;">2</div>
+      <div>
+        <strong>Pilot Projects (Months 4-6)</strong>
+        <div class="small">Launch 10 demonstration homes to validate cost savings and build quality</div>
+      </div>
+    </div>
+    
+    <div class="fact">
+      <div class="icon" style="background: #fef7cd; color: #854d0e;">3</div>
+      <div>
+        <strong>Scale & Replicate (Months 7-12)</strong>
+        <div class="small">Expand to 3 new cities, onboard 100+ additional partners</div>
+      </div>
+    </div>
+    
+    <div class="fact">
+      <div class="icon" style="background: #fae8ff; color: #86198f;">4</div>
+      <div>
+        <strong>Ecosystem Growth (Year 2+)</strong>
+        <div class="small">Develop training programs, launch maintenance services, create partner portal</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="partners" class="card" aria-labelledby="partners-h" role="region">
+  <h2 id="partners-h">Why Partners Choose EcoHive</h2>
+  
+  <div class="two-col">
+    <div>
+      <h3 style="color: var(--green);">For Material Suppliers</h3>
+      <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+        <strong>💰 Bulk Order Advantage</strong>
+        <div class="small">Minimum 100-unit orders per quarter, reducing your sales costs</div>
+      </div>
+      <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+        <strong>📈 Market Expansion</strong>
+        <div class="small">Access to urban housing market without individual marketing costs</div>
+      </div>
+      <div style="background: white; padding: 15px; border-radius: 8px;">
+        <strong>🔬 Innovation Partnership</strong>
+        <div class="small">Co-develop new sustainable materials with our R&D team</div>
+      </div>
+    </div>
+    
+    <div>
+      <h3 style="color: var(--green);">For Local Retailers</h3>
+      <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+        <strong>🏠 Steady Customer Flow</strong>
+        <div class="small">EcoHive homeowners become your regular maintenance customers</div>
+      </div>
+      <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+        <strong>🎯 Targeted Marketing</strong>
+        <div class="small">Featured in our partner directory to eco-conscious customers</div>
+      </div>
+      <div style="background: white; padding: 15px; border-radius: 8px;">
+        <strong>📚 Training & Support</strong>
+        <div class="small">Free training on sustainable building materials and techniques</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!-- Market -->
+<section class="card" aria-labelledby="market-h">
+  <h2 id="market-h">Market Opportunity</h2>
+  <p class="small">
+    Target: India’s 300–350M low/middle-income urban families. Strong demand drivers include
+    government housing policies, climate stress, and rising utility costs. EcoHive targets
+    subsidy-reliant families, aspirational upgraders, and climate-aware developers.
+  </p>
+
+  <div class="market-grid" style="margin-top:12px">
+    <div class="market-card">
+      <strong>Scalable</strong>
+      <div class="small">Modular construction can be replicated at neighbourhood scale.</div>
+    </div>
+    <div class="market-card">
+      <strong>Policy fit</strong>
+      <div class="small">Aligned with national housing initiatives and subsidies.</div>
+    </div>
+    <div class="market-card">
+      <strong>Impact</strong>
+      <div class="small">Low carbon footprint and long-term cost savings for residents.</div>
+    </div>
+  </div>
+</section>
+
+
+      <!-- Contact -->
+      <section id="contact" class="card" aria-labelledby="contact-h">
+        <h2 id="contact-h">Get Involved — Request Early Access or Partner</h2>
+        <div style="display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start">
+          <div>
+            <form id="leadForm" onsubmit="return leadSubmit(event)">
+              <input type="text" id="name" placeholder="Your name" required />
+              <input type="email" id="email" placeholder="Email address" required />
+              <input type="text" id="role" placeholder="I am a... (homeowner / investor / developer / partner)" />
+              <textarea id="message" placeholder="Tell us a bit about your interest" rows="4"></textarea>
+              <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
+                <button class="btn" type="submit">Send request</button>
+                <a class="btn secondary" href="mailto:ayan.24bev7025@vitapstudent.ac.in?subject=EcoHive%20Interest">Email Directly</a>
+              </div>
+            </form>
+          </div>
+
+          <aside class="card" style="height:100%">
+            <div style="font-weight:700;margin-bottom:8px">Team & Contact</div>
+            <div class="small">
+              <strong>Dulla Manaswi</strong><br/>manaswi.24bec7025@vitapstudent.ac.in<br/>
+            </div>
+            <div style="height:12px"></div>
+            <div class="small">
+              <strong>Sampreeti Das</strong><br/>sampreeti.24bce7924@vitapstudent.ac.in<br/>
+            </div>
+            <div style="height:12px"></div>
+            <div class="small">
+              <strong>Ayan Mandal</strong><br/>ayan.24bev7025@vitapstudent.ac.in<br/>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+    <section class="card" aria-labelledby="quicklinks-h">
+  <h2 id="quicklinks-h">Quick Links</h2>
+  <div class="three-col" style="margin-top:10px">
+    <div class="col">
+  <h3 style="color:var(--green);margin-bottom:6px;">Explore</h3>
+  <ul style="list-style:none;padding-left:0;margin:0;color:var(--muted)">
+    <li><a href="#problem" style="color:inherit;text-decoration:none;">Problems We Solve</a></li>
+    <li><a href="#prototype" style="color:inherit;text-decoration:none;">Our Solution</a></li>
+    <li><a href="#mission" style="color:inherit;text-decoration:none;">Mission & Values</a></li>
+  </ul>
+</div>
+
+    <div class="col">
+      <h3 style="color:var(--green);margin-bottom:6px;">Resources</h3>
+      <ul style="list-style:none;padding-left:0;margin:0;color:var(--muted)">
+        <li><a href="#" style="color:inherit;text-decoration:none;">Download Pitch Deck</a></li>
+        <li><a href="#" style="color:inherit;text-decoration:none;">Investor Brief</a></li>
+        <li><a href="#" style="color:inherit;text-decoration:none;">EcoHive Blog (Coming Soon)</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h3 style="color:var(--green);margin-bottom:6px;">Connect</h3>
+      <ul style="list-style:none;padding-left:0;margin:0;color:var(--muted)">
+        <li><a href="#contact" style="color:inherit;text-decoration:none;">Contact Team</a></li>
+        <li><a href="mailto:ayan.24bev7025@vitapstudent.ac.in" style="color:inherit;text-decoration:none;">Email Us</a></li>
+        <li><a href="#" style="color:inherit;text-decoration:none;">Follow on Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+    <footer>
+      <div class="small">EcoHive — Building Homes Powered by Nature</div>
+      <div class="small">&copy; EcoHive • Building Homes Powered by Nature.</div>
+    </footer>
+  </div>
+
+  <script>
+  // Enhanced form handler with validation
+  function leadSubmit(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    
+    // Simple validation
+    if(!name || !email) {
+      alert('Please fill in name and email fields');
+      return false;
+    }
+    
+    // Show confirmation
+    alert(`Thanks ${name}! We'll contact you at ${email} within 24 hours.`);
+    
+    // Then send email
+    const role = document.getElementById('role').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const subject = encodeURIComponent('EcoHive: Early Access Request');
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nRole: ${role}\n\nMessage:\n${message}`);
+    window.location.href = `mailto:ayan.24bev7025@vitapstudent.ac.in?subject=${subject}&body=${body}`;
+    
+    // Clear form
+    document.getElementById('leadForm').reset();
+    
+    return false;
+  }
+
+// Savings Calculator Function with Enhanced Features
+function calculateSavings() {
+  const salary = parseInt(document.getElementById('salary').value) || 50000;
+  const electricity = parseInt(document.getElementById('electricity').value) || 3000;
+  const water = parseInt(document.getElementById('water').value) || 800;
+  const familySize = parseInt(document.querySelector('.family-btn.active').dataset.size) || 3;
+  
+  // Calculate savings (realistic estimates)
+  const elecSavings = electricity * 0.70; // 70% reduction
+  const waterSavings = water * 0.60; // 60% reduction
+  const totalMonthly = Math.round(elecSavings + waterSavings);
+  const totalAnnual = totalMonthly * 12;
+  const savingsPercentage = ((totalMonthly / salary) * 100).toFixed(1);
+  
+  // Update results with better formatting
+  document.getElementById('results').innerHTML = `
+    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+      <div style="font-size: 2.5rem; color: var(--green);">₹${totalMonthly.toLocaleString()}</div>
+      <div style="text-align: left;">
+        <div class="small">Monthly Savings</div>
+        <div style="font-size: 0.8rem; color: var(--accent);">★ ${Math.round((totalMonthly/(electricity+water))*100)}% of utility bills</div>
+      </div>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px;">
+      <div style="background: white; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <div class="small">Electricity</div>
+        <strong style="color: var(--green); font-size: 1.2rem;">-70%</strong>
+        <div class="small" style="color: var(--muted);">₹${Math.round(elecSavings).toLocaleString()} saved</div>
+      </div>
+      <div style="background: white; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <div class="small">Water</div>
+        <strong style="color: var(--green); font-size: 1.2rem;">-60%</strong>
+        <div class="small" style="color: var(--muted);">₹${Math.round(waterSavings).toLocaleString()} saved</div>
+      </div>
+    </div>
+    
+    <div style="margin-top: 20px; padding: 15px; background: white; border-radius: 8px;">
+      <div class="small">Annual Savings</div>
+      <strong style="color: var(--green); font-size: 1.4rem;">₹${totalAnnual.toLocaleString()}</strong>
+      <div class="small" style="color: var(--muted); margin-top: 5px;">That's ${savingsPercentage}% of your income saved!</div>
+    </div>
+  `;
+}
+
+// Family size button functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize calculator
+  calculateSavings();
+  
+  // Family button click handlers
+  document.querySelectorAll('.family-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Remove active class from all buttons
+      document.querySelectorAll('.family-btn').forEach(b => b.classList.remove('active'));
+      // Add active class to clicked button
+      this.classList.add('active');
+      // Recalculate savings
+      calculateSavings();
+    });
+  });
+  
+  // Recalculate when any input changes
+  document.getElementById('salary').addEventListener('input', calculateSavings);
+  document.getElementById('electricity').addEventListener('input', calculateSavings);
+  document.getElementById('water').addEventListener('input', calculateSavings);
+});
+
+  // Initialize calculator on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    calculateSavings();
+  });
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(el=>{
+    el.addEventListener('click', (ev)=>{
+      const target = document.querySelector(el.getAttribute('href'));
+      if(target){ ev.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
+    })
+  })
+</script>
+
+</body>
+</html>
